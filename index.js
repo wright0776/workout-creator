@@ -8,7 +8,7 @@ const moveRouter = require('./routes/moves');
 
 const app = express();
 const port = process.env.PORT || 8080;
-const db = process.env.MONGO_URI || 'mongodb://localhost:27017/workoutApp';
+const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/workoutApp';
 
 // middleware
 app.use(bodyParser.json());
