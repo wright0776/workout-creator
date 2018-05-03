@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Archivo+Black|Chivo:300,400,700,900|Hammersmith+One|Roboto:100,300,400');
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+img {
+    max-width: 100%;
+}
+button {
+    outline: none;
+    cursor: pointer;
+}
+button:active {
+    cursor: pointer;
+}
+.line {
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+.buttonMenu {
+    position: fixed;
+    right: 0;
+    background: transparent;
+    height: 50px;
+    width: 50px;
+    padding: 6px;
+}
+.buttonContainer {
+    padding-top: 2px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: .2s;
+}
+.buttonContainer:hover {
+    transition: .5s;
+    border-radius: 2px;
+    background: rgb(30, 194, 235);
+    box-shadow: inset 0 0 5px black;
+}
+.button {
+    height: 5px;
+    width: 5px;
+    background: black;
+    border-radius: 50%;
+    margin: 5px auto;
+}
+.mainTitle {
+    background-color: #252422;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+.alpha {
+    background: rgb(30, 194, 235);
+    text-align: center;
+    padding: 10px 0;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 1.8em;
+}
+.pageTitle {
+    background: rgb(30, 194, 235);
+    text-align: center;
+    padding: 10px 0;
+    color: white;
+    letter-spacing: 1px;
+    font-family: 'Chivo', sans-serif;
+    font-weight: 400;
+}
+.mainMenu {
+    background: #403D39;
+    height: 100vh;
+}
+.menuContainer {
+    background: #CCC5B9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 450px;
+}
+.menuContainer > a {
+    background: #FFFCF2;
+    height: 60px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 2em;
+    color: black;
+    transition: .2s;
+    border-radius: 5px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+.menuContainer > a:hover {
+    box-shadow: 0 12px 16px rgba(255, 255, 255, 0.2);
+    transition: .2s;
+}
+.back {
+    background-color: #252422;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+.back a, .backInner a {
+    height: 20px;
+    align-items: center;
+    background: #FFFCF2;
+    font-size: 1.1em;
+    color: black;
+    text-decoration: none;
+    padding: 0 5px 0 5px;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.back a, .backInner a:hover {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+.workoutList {
+    background: #403D39;
+    min-height: 100vh;
+}
+.list {
+    background: #CCC5B9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    min-height: 450px;
+    padding-bottom: 40px;
+}
+.list > a {
+    background: #FFFCF2;
+    height: 60px;
+    width: 80%;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 2em;
+    color: black;
+    transition: .2s;
+    border-radius: 5px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+.list > a:hover {
+    box-shadow: 0 12px 16px rgba(255, 255, 255, 0.2);
+    transition: .2s;
+}
+.moveListContainer {
+    background: #CCC5B9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    min-height: 450px;
+    padding-bottom: 40px;
+    width: 100%;
+}
+.moveInList {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.popMenu {
+    display: block;
+    position: fixed;
+    z-index: 9;
+    padding: 140px 0 100px 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.popMenuContent {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+.popMenuItems {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    text-align: center;
+}
+.popMenuItems > .popMB {
+    height: 30px;
+    margin-top: 15px;
+}
+.popMenuItems input {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+.wMMLItem button {
+    font-size: 1em;
+    background: transparent;
+    border: none;
+}
+.editForm {
+    margin-top: 15px;
+}
+.wMMLItem {
+    padding: 2px 3px 2px 5px;
+    box-shadow: inset 0 0 5px rgb(30, 194, 235);
+    border-radius: 2px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    cursor: -webkit-grab;
+}
+.wMMLItem * {
+    margin-top: 3px;
+}
+.wMMLItem:active {
+    cursor: -webkit-grabbing;
+}
+.addFromExisting {
+    display: block;
+    position: fixed;
+    z-index: 99;
+    padding: 140px 0 100px 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 44, 126, 0.4);
+}
+.addFromExistingContent {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+.addFromExistingItems {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.addFromExistingItems label {
+    border: 1px solid rgb(30, 194, 235);
+    box-shadow: inset 0 0 5px rgb(30, 194, 235);
+    padding: 2px 5px 2px 5px;
+    border-radius: 2px;
+    margin: 0 0 5px 0;
+    display: flex;
+    width: 100%;
+}
+.addFromExistingItems input {
+    width: 10%;
+    margin-top: 3px;
+}
+.save {
+    margin-top: 15px;
+    width: 80px;
+    font-size: .9em;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+.button2 {
+    margin: 15px;
+    font-size: .75em;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+.moveInList > a, .moveInList > button {
+    background: #FFFCF2;
+    height: 40px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 15px 0 15px;
+    text-decoration: none;
+    font-size: 110%;
+    color: black;
+    transition: .2s;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+.moveInList > a {
+    z-index: 2;
+    width: 60%;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.moveInList > button {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.moveInList > a:hover, .moveInList > button:hover {
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+    transition: .2s;
+}
+
+.search {
+    margin-left: 20px;
+    width: 200px;
+    font-size: 1.2em;
+    outline: none;
+}
+.workout {
+    background: #252422;
+}
+.backInner {
+    background-color: #252422;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 40px;
+    margin: 5px 0 5px 0;
+}
+.newWorkout {
+    background: #CCC5B9;
+    min-height: 100vh;
+}
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.workoutForm {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.workoutForm input, h3 {
+    margin-top: 30px;
+    line-height: 1.5;
+    font-size: 1em;
+}
+.workoutForm p {
+    margin-top: 2px;
+}
+.workoutFormInputs, textarea {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border-bottom: 1px solid rgb(0, 162, 255);
+    padding-bottom: 30px;
+}
+.formButtonsContainer {
+    display: flex;
+    margin-top: 10px;
+}
+.submit, .reset {
+    width: 100px;
+    margin: 20px auto 0 auto;
+}
+.moveListNewWContainer {
+    background: #CCC5B9;
+    padding: 20px 5% 20px 5%;
+    padding-bottom: 40px;
+    width: 100%;
+    margin: 0;
+}
+.moveInNewWList {
+    display: flex;
+    margin-top: 10px;
+}
+.moveInNewWList > a, .moveInNewWList > button {
+    background: #FFFCF2;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1em;
+    color: black;
+    transition: .2s;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+.moveInNewWList > a {
+    padding: 0 15px 0 10px;
+    z-index: 10;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    width: 100%;
+}
+.moveInNewWList > button {
+    padding: 0 10px 0 10px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.moveInNewWList > a:hover, .moveInNewWList > button:hover {
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+    transition: .2s;
+}
+
+
+
+.footer {
+    height: 100px;
+    background-color: #403D39;
+    text-align: center;
+    padding: 50px 0 100px 0;
+    position: relative;
+}
+.footer a {
+    text-decoration: none;
+    animation: hue 60s infinite;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -50px;
+    color: rgb(102, 255, 0);
+}
+
+@keyframes hue {
+    from {
+      filter: hue-rotate(0deg);
+    }
+  
+    to {
+      filter: hue-rotate(360deg);
+    }
+  }
