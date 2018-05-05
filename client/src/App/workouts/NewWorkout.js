@@ -24,8 +24,14 @@ class NewWorkout extends Component {
     }
 
     handleSubmit = (e) => {
+        if(this.state.inputs.name.length > 0){
+            
+            document.getElementById('cWPageTitle').scrollIntoView();
+        } else {}
         e.preventDefault();
-        this.props.postWorkout(this.state.inputs)
+        this.props.postWorkout(this.state.inputs);
+        this.setState(this.initialState);
+        document.getElementById('cWPageTitle').scrollIntoView();
     }
     handleChange = (e) => {
         let { name, value } = e.target;
@@ -82,10 +88,10 @@ class NewWorkout extends Component {
         } else {
             return (
                 <div className='newWorkout'>
-                    <h2 className='pageTitle'>Create New Workout</h2>
-                    <div className='backInner'>
-                        <Link to='/'>Main Menu</Link>
-                        <Link to='/workouts'>Workouts</Link>
+                    <h2 className='pageTitle' id='cWPageTitle'>Create New Workout</h2>
+                    <div className='navigationBar'>
+                        <Link className='navigationBarLink' to='/'>Main Menu</Link>
+                        <Link className='navigationBarLink' to='/workouts'>Workouts</Link>
                     </div>
                     <div className='formContainer'>
                         <form onSubmit={this.handleSubmit} className='workoutForm'>

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteWorkout, editWorkout } from '../../redux/workouts';
 import { getMoves } from '../../redux/moves';
-import ExistingMovesToAdd from './ExistingMovesToAdd';
+import AddMoveFromExisting from './AddMoveFromExisting';
+import AddMoveFromCreate from './AddMoveFromCreate';
 
 class WorkoutMenu extends Component {
     constructor(props) {
@@ -18,7 +19,8 @@ class WorkoutMenu extends Component {
             editing: false,
             editee: "",
             adding: false,
-            addingFromExisting: false
+            addingFromExisting: false,
+            addingFromCreate: false
         };
         this.state = this.initialState;
     }
@@ -47,18 +49,20 @@ class WorkoutMenu extends Component {
         !this.state.addingFromExisting ? this.props.getMoves() : null;
         this.setState(prevState => ({ ...prevState, addingFromExisting: !this.state.addingFromExisting }))
     }
+    addFromCreate = (e) => {
+        e.persist();
+        e.preventDefault();
+        this.setState(prevState => ({ ...prevState, addingFromCreate: !this.state.addingFromCreate}))
+    }
     addToMovesArray = (e, moves) => {
         e.persist();
         e.preventDefault();
         this.setState(prevState => ({
             inputs: {
                 ...prevState.inputs,
-                moves: [ ...prevState.inputs.moves, ...moves]
+                moves: [...prevState.inputs.moves, ...moves]
             }
         }))
-    }
-    addNewMove = (e) => {
-        e.preventDefault();
     }
     removeMove = (e) => {
         e.persist();
@@ -83,40 +87,46 @@ class WorkoutMenu extends Component {
     render() {
         const { close, workout } = this.props;
         const { name, type, target, moves } = this.state.inputs;
-        const allMoves = moves.map((move, i) =>
-            <div draggable={true} className='wMMLItem' key={move + i}>
-                <div>||</div>
-                <div>{move.name}</div>
-                <button id={move._id} className='wMMLItemx' onClick={this.removeMove}>&times;</button>
-            </div>
-        )
         return (
             <div>
                 <div className='popMenuItems'>
-                    <h2>{this.props.workout.name}</h2>
-                    <button onClick={this.edit} className='popMB'>Edit</button>
+                    <h2 className='popMenuName'>{this.props.workout.name}</h2>
+                    <button onClick={this.edit} className='popMenuButton'>Edit</button>
                     {this.state.editing ?
                         <form className='editForm'>
-                            <input onChange={this.handleChange} type="text" name='name' value={name} />
-                            <input onChange={this.handleChange} type="text" name='type' value={type} />
-                            <input onChange={this.handleChange} type="text" name='target' value={target} />
+                            <label className='name2'>Name:
+                                <input onChange={this.handleChange} type="text" name='name' value={name} />
+                            </label>
+                            <label className='type2'>Type:
+                                <input onChange={this.handleChange} type="text" name='type' value={type} />
+                            </label>
+                            <label className='target2'>Target:
+                                <input onChange={this.handleChange} type="text" name='target' value={target} />
+                            </label>
                             <button className='button2' onClick={this.addMoves}>Add Moves</button>
                             {this.state.adding ? <div>
                                 <p>Add Move From:</p>
                                 <button className='button2' onClick={this.addFromExisting}>Existing</button>
-                                <button className='button2' onClick={this.addNewMove}>New</button>
+                                <button className='button2' onClick={this.addFromCreate}>New</button>
                             </div> : null}
-                            <div className='wMMovesList'>{allMoves}</div>
+                            <div className='wMMovesList'>
+                                {moves.map((move, i) =>
+                                    <div draggable={true} className='wMMLItem' key={move + i}>
+                                        <div>{move.name}</div>
+                                        <button id={move._id} className='wMMLItemx' onClick={this.removeMove}>&times;</button>
+                                    </div>)}
+                            </div>
                             <button className='save' onClick={this.save}>Save</button>
                         </form> : null}
-                    <button onClick={this.delete} name={workout._id} className='popMB'>Delete</button>
-                    {/* <button className='popMB'>move up</button>
-                    <button className='popMB'>move down</button> */}
+                    <button onClick={this.delete} name={workout._id} className='popMenuButton'>Delete</button>
                     <button className='close' onClick={close}>&times;</button>
                 </div>
-                {this.state.addingFromExisting ? 
-                <ExistingMovesToAdd addToMovesArray={this.addToMovesArray} addFromExisting={this.addFromExisting} moves={this.props.data} /> 
-                : null}
+                {this.state.addingFromExisting ?
+                    <AddMoveFromExisting addToMovesArray={this.addToMovesArray} addFromExisting={this.addFromExisting} moves={this.props.data} />
+                    : null}
+                {this.state.addingFromCreate ? 
+                    <AddMoveFromCreate addToMovesArray={this.addToMovesArray} addFromCreate={this.addFromCreate} workoutName={this.state.inputs.name} />
+                    : null}
             </div>
         )
     }

@@ -4,13 +4,13 @@ import {Link} from 'react-router-dom';
 function MainMenu () {
     return (
         <div className='mainMenu'>
-            <h2 className='pageTitle alpha'>WORKOUT CREATOR</h2>
-            <div className='mainTitle'>Main Menu</div>
+            <h2 className='pageTitle'>WORKOUT CREATOR</h2>
+            <div className='mainMenuTitle'>Main Menu</div>
             <div className='menuContainer'>
-                <Link to='/workouts'>My Workouts</Link>
-                <Link to='/moves'>My Exercises</Link>
-                <Link to='/new-workout'>Create New Workout</Link>
-                <Link to='/new-move'>Create New Exercise</Link>
+                <Link className='mainMenuLink' to='/workouts'>My Workouts</Link>
+                <Link className='mainMenuLink' to='/moves'>My Moves</Link>
+                <Link className='mainMenuLink' to='/new-workout'>Create New Workout</Link>
+                <Link className='mainMenuLink' to='/new-move'>Create New Move</Link>
             </div>
         </div>
     )

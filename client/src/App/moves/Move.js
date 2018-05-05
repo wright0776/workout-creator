@@ -22,8 +22,8 @@ class Move extends Component {
             return (
                 <div>
                     <h2 className='pageTitle'>{name}</h2>
-                    <div className='back'>
-                        <Link to='/moves'>Exercises</Link>
+                    <div className='navigationBar'>
+                        <Link className='navigationBarLink' to='/moves'>Moves</Link>
                     </div>
                     <div className='list'>
                         <h2>{name}</h2>

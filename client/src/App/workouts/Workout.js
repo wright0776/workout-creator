@@ -31,22 +31,39 @@ class Workout extends Component {
             )
         } else {
             const { name, moves, target, type } = currentWorkout
-            const workoutMoves = moves.map((move, i) =>
-                <WorkoutMove key={move._id + i}{...move} />)
             return (
                 <div className='workout'>
-                    <h2 className='pageTitle'>{name}</h2>
-                    <div className='backInner'>
-                        <Link to='/workouts'>Workouts</Link>
-                        <Link to='/'>Main Menu</Link>
+                    <h2 className='pageTitle black'>{name}</h2>
+                    <div className='navigationBar'>
+                        <Link className='navigationBarLink' to='/workouts'>Workouts</Link>
+                        <Link className='navigationBarLink' to='/'>Main Menu</Link>
                     </div>
-                    <div className='list'>
-                        <h3>Type:</h3>
-                        <h2>{type}</h2>
-                        <h3>Target:</h3>
-                        <h2>{target}</h2>
-                        <h3>Exercises:</h3>
-                        {workoutMoves}
+                    <div className='workoutDetails'>
+                        <h1 className='workoutName'>{name}</h1>
+                        <div className='workoutDetail'>
+                            <div className='type'>Type:</div>
+                            <div>{type}</div>
+                        </div>
+                        <div className='workoutDetail'>
+                            <div className='target'>Target:</div>
+                            <div>{target}</div>
+                        </div>
+                        <div className='exercises'>Exercises:</div>
+                        <div className='movesInWorkout'>
+                            {moves.map((move, i) =>
+                                <div className='moveInWorkout'>
+                                    <WorkoutMove key={move._id + i}{...move} />
+                                    <div className='moveDetail'>
+                                        <div className='sets'>Sets:</div>
+                                        <div></div>
+                                    </div>
+                                    <div className='moveDetail'>
+                                        <div className='reps'>Reps:</div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             )

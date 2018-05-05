@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postMove } from '../../redux/moves';
 
-class AddNewMove extends Component {
+class AddMoveFromCreate extends Component {
     constructor(props) {
         super(props);
         this.initialState = {
@@ -21,6 +20,7 @@ class AddNewMove extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.postMove(this.state.inputs);
+        this.props.addFromCreate();
     }
     handleChange = (e) => {
         let { name, value } = e.target;
@@ -40,12 +40,13 @@ class AddNewMove extends Component {
     render() {
         let { name, target, type, description, imgUrl } = this.state.inputs
         return (
-            <div className='newWorkout'>
-                <h2 className='pageTitle'>Create New Exercise</h2>
-                <div className='back'>
-                    <Link to='/'>Main Menu</Link>
-                </div>
-                <div className='formContainer'>
+            <div className='addFromCreate'>
+                <div className='addFromCreateContent'>
+                <button className='close' onClick={this.props.addFromCreate}>&times;</button>
+                    <div className='addFromCreateTitle'>
+                        Add Move To:
+                        <div className='addFromCreateName'>{this.props.workoutName}</div>
+                    </div>
                     <form onSubmit={this.handleSubmit} className='workoutForm'>
                         <input onChange={this.handleChange} name='name' value={name} placeholder='Workout Name' type="text" />
                         <input onChange={this.handleChange} name='target' value={target} placeholder='Target' type="text" />
@@ -63,4 +64,4 @@ class AddNewMove extends Component {
     }
 }
 
-export default connect(null, { postMove })(AddNewMove)
+export default connect(null, { postMove })(AddMoveFromCreate)

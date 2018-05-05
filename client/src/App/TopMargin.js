@@ -9,11 +9,11 @@ class TopMargin extends Component {
 
     render () {
         return (
-                <div className='buttonMenu'>
-                    <div className='buttonContainer'>
-                        <div className='button'></div>
-                        <div className='button'></div>
-                        <div className='button'></div>
+                <div className='dotsButtonCont'>
+                    <div className='dotsButton'>
+                        <div className='dot'></div>
+                        <div className='dot'></div>
+                        <div className='dot'></div>
                     </div>
                 </div>
         )

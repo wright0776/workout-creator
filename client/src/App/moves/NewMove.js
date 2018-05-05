@@ -42,8 +42,8 @@ class NewMove extends Component {
         return (
             <div className='newWorkout'>
                 <h2 className='pageTitle'>Create New Exercise</h2>
-                <div className='back'>
-                    <Link to='/'>Main Menu</Link>
+                <div className='navigationBar'>
+                    <Link className='navigationBarLink' to='/'>Main Menu</Link>
                 </div>
                 <div className='formContainer'>
                     <form onSubmit={this.handleSubmit} className='workoutForm'>

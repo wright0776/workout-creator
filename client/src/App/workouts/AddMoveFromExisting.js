@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class ExistingMovesToAdd extends Component {
+class AddMoveFromExisting extends Component {
     constructor(props) {
         super(props);
         this.initialState = {
@@ -44,19 +44,21 @@ class ExistingMovesToAdd extends Component {
                     <button className='close' onClick={this.props.addFromExisting}>&times;</button>
                     <form className='addFromExistingItems'>
                         {this.state.movesToAdd.map ? this.state.movesToAdd.map((move, i) =>
-                            <div key={move.id}>
-                                <button className='button2' onClick={(e) => this.removeFromAdds(e, move._id)}>Remove</button>
-                                {move.name}
+                            <div className='addFromExistingItem' key={move.id}>
+                                <button className='button3' onClick={(e) => this.removeFromAdds(e, move._id)}>Remove</button>
+                                <div className='existingName'>{move.name}</div>
                             </div>
                         ) : null}
                         <div className='line'></div>
                         {this.props.moves.map ? this.props.moves.map((move, i) =>
-                            <div key={move._id}>
-                                <button className='button2' onClick={(e) => this.addToAdds(e, move)}>Add</button>
-                                {move.name}
+                            <div className='addFromExistingItem' key={move._id}>
+                                <button className='button3' onClick={(e) => this.addToAdds(e, move)}>Add</button>
+                                <div className='existingName'>{move.name}</div>
                             </div>
                         ) : null}
-                        <button onClick={this.addToMoves} className='save'>Save</button>
+                        <div className='center'>
+                            <button onClick={this.addToMoves} className='save'>Done</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -64,4 +66,4 @@ class ExistingMovesToAdd extends Component {
     }
 }
 
-export default ExistingMovesToAdd
+export default AddMoveFromExisting;

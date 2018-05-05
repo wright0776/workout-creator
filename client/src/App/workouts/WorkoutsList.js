@@ -38,32 +38,31 @@ class WorkoutsList extends Component {
                 <div className='errMsg'>{errMsg}</div>
             )
         } else {
-            const comps = data.map((item, i) =>
-                <div key={i} className='moveInList'>
-                    <Link to={`/workouts/${item._id}`} key={item._id}>{item.name}</Link>
-                    <button onClick={this.openClick} name={item._id}>...</button>
-                    {this.state.open && this.state.opened === item._id ?
-                        <div className='popMenu'>
-                            <div className='popMenuContent'>
-                                <WorkoutMenu 
-                                    workout={{...item}} 
-                                    close={this.openClick} 
-                                    deleteWorkout={deleteWorkout}
-                                    editWorkout={editWorkout}
-                                />
-                            </div>
-                        </div> : null}
-                </div>)
             return (
-                <div className='workoutList'>
+                <div className='workoutsList'>
                     <h2 className='pageTitle'>Workouts</h2>
-                    <div className='back'>
-                        <Link to='/'>Main Menu</Link>
-                        <input className='search' placeholder='search' type="search" />
+                    <div className='navigationBar'>
+                        <Link className='navigationBarLink' to='/'>Main Menu</Link>
+                        {/* <input className='navigationBarLink' placeholder='search' type="search" /> */}
                     </div>
-                    <div className='list'>
-                        {comps}
-                        <Link className='bottomButton' to='/new-workout'>Create New Workout</Link>
+                    <div className='listOfWorkouts'>
+                        {data.map((item, i) =>
+                            <div key={i} className='workoutInList'>
+                                <Link className='workoutLinkInList' to={`/workouts/${item._id}`} key={item._id}>{item.name}</Link>
+                                <button className='workoutButtonInList' onClick={this.openClick} name={item._id}>&#8942;</button>
+                                {this.state.open && this.state.opened === item._id ?
+                                    <div className='popMenu'>
+                                        <div className='popMenuContent'>
+                                            <WorkoutMenu
+                                                workout={{ ...item }}
+                                                close={this.openClick}
+                                                deleteWorkout={deleteWorkout}
+                                                editWorkout={editWorkout}
+                                            />
+                                        </div>
+                                    </div> : null}
+                            </div>)}
+                        <Link className='workoutLinkInList' to='/new-workout'>+ Create New Workout</Link>
                     </div>
                 </div>
             )
