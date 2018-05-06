@@ -40,17 +40,17 @@ class NewMove extends Component {
     render() {
         let { name, target, type, description, imgUrl } = this.state.inputs
         return (
-            <div className='newWorkout'>
+            <div className='newMove'>
                 <h2 className='pageTitle'>Create New Exercise</h2>
                 <div className='navigationBar'>
                     <Link className='navigationBarLink' to='/'>Main Menu</Link>
                 </div>
                 <div className='formContainer'>
-                    <form onSubmit={this.handleSubmit} className='workoutForm'>
+                    <form className='moveForm' onSubmit={this.handleSubmit}>
                         <input onChange={this.handleChange} name='name' value={name} placeholder='Workout Name' type="text" />
                         <input onChange={this.handleChange} name='target' value={target} placeholder='Target' type="text" />
                         <input onChange={this.handleChange} name='type' value={type} placeholder='Type' type="text" />
-                        <textarea rows='5' cols='50' onChange={this.handleChange} name='description' value={description} placeholder='Description' type="text" />
+                        <textarea className='newMoveTextArea' rows='5' cols='50' onChange={this.handleChange} name='description' value={description} placeholder='Description' type="text" />
                         <input onChange={this.handleChange} name='imgUrl' value={imgUrl} placeholder='Image Url' type="text" />
                         <div className='formButtonsContainer'>
                             <input className='submit' type="submit" />

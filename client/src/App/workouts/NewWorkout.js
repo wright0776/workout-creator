@@ -48,6 +48,7 @@ class NewWorkout extends Component {
         e.persist();
         e.preventDefault();
         console.log(this.state.inputs.moves)
+        document.getElementById('movesAddedList').scrollIntoView();
         this.setState(prevState => {
             return {
                 inputs: {
@@ -99,7 +100,7 @@ class NewWorkout extends Component {
                                 <input onChange={this.handleChange} name='name' value={name} placeholder='Workout Name' type="text" />
                                 <input onChange={this.handleChange} name='target' value={target} placeholder='Target' type="text" />
                                 <input onChange={this.handleChange} name='type' value={type} placeholder='Type' type="text" />
-                                <h3>Exercises:</h3>
+                                <h3 id="movesAddedList">Moves:</h3>
                                 {this.state.inputs.moves.length > 0 ? this.state.inputs.moves.map((move,i) =>
                                     <p key={i}>
                                         <button onClick={(e)=>this.removeMove(e, move)}>x</button>
