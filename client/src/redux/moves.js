@@ -42,7 +42,8 @@ const movesReducer = (state = initialState, action) => {
         case 'EDIT_MOVE':
             return {
                 ...state,
-                data: state.data.map(move => action.id === move.id ? action.move : move)
+                data: state.data.map(move => action.id === move.id ? action.move : move),
+                loading: false
             }
         default:
             return state;

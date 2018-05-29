@@ -30,7 +30,7 @@ moveRouter.route('/:id')
         MoveModel.findOneAndRemove({ _id: req.params.id }, (err, deletedMove) => {
             if (err) return res.send(err);
             if (!deletedMove) return res.status(404).send({ message: 'move not found' });
-            res.status(200).send({ message: `${deletedMove} successfully deleted.`})
+            res.status(200).send({ message: `${deletedMove} successfully deleted.` })
         })
     })
     .put((req, res) => {

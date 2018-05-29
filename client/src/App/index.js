@@ -1,5 +1,7 @@
 import React from 'react';
-import {Switch,Route} from 'react-router-dom';
+
+// REACT ROUTER ELEMENTS
+import { Switch, Route } from 'react-router-dom';
 
 // STATIC
 import TopMargin from './TopMargin';
@@ -14,7 +16,7 @@ import Move from './moves/Move';
 import NewWorkout from './workouts/NewWorkout';
 import NewMove from './moves/NewMove';
 
-function App () {
+function App() {
     return (
         <div className='app'>
             <TopMargin />
