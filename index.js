@@ -22,7 +22,7 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 })
 
-mongoose.connect(db), (err) => {
+mongoose.connect(db, { useNewUrlParser: true }), (err) => {
     if(err) console.log(`Sorry, can't connect to the database right now. ${err}`);
     console.log(`Connected to MongoDB`);
 };
